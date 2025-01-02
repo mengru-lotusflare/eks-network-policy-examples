@@ -72,4 +72,8 @@ spec:
       - name: nginx-index-volume
         configMap:
           name: demo-app-index
+      tolerations:
+      - key: "node-role.kubernetes.io/infralayer"
+        operator: "Exists"
+        effect: "NoSchedule"
 ---

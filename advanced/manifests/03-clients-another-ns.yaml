@@ -20,6 +20,10 @@ spec:
       requests:
         cpu: 100m
         memory: 128Mi
+  tolerations:
+  - key: "node-role.kubernetes.io/infralayer"
+    operator: "Exists"
+    effect: "NoSchedule"
 ---
 apiVersion: v1
 kind: Pod
@@ -42,3 +46,7 @@ spec:
       requests:
         cpu: 100m
         memory: 128Mi
+  tolerations:
+  - key: "node-role.kubernetes.io/infralayer"
+    operator: "Exists"
+    effect: "NoSchedule"
