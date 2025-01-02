@@ -1,5 +1,9 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: another-ns
-  
+  name: dst-ns
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: src-ns  

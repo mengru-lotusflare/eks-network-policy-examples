@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-jenkins-agent
+  namespace: lotusflare
+spec:
+  podSelector:
+    matchLabels:
+      app: client-one
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - ipBlock:
+            cidr: 10.8.16.11/32 # Deny access to the specific IP

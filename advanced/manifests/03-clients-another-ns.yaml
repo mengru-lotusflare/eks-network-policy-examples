@@ -5,7 +5,7 @@ metadata:
   labels:
     app: another-client-one
   name: another-client-one
-  namespace: another-ns
+  namespace: dst-ns
 spec:
   containers:
   - image: curlimages/curl:latest
@@ -13,6 +13,13 @@ spec:
     command:
     - sleep
     - "3600"
+    resources:
+      limits:
+        cpu: 200m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
 ---
 apiVersion: v1
 kind: Pod
@@ -20,7 +27,7 @@ metadata:
   labels:
     app: another-client-two
   name: another-client-two
-  namespace: another-ns
+  namespace: dst-ns
 spec:
   containers:
   - image: curlimages/curl:latest
@@ -28,3 +35,10 @@ spec:
     command:
     - sleep
     - "3600"
+    resources:
+      limits:
+        cpu: 200m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi

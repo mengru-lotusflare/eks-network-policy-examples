@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: demo-app
+  namespace: src-ns
 spec:
   type: ClusterIP
   ports:
@@ -14,6 +15,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: demo-app-index
+  namespace: src-ns
 data:
   index.html: |
     <!DOCTYPE html>
@@ -41,6 +43,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-app
+  namespace: src-ns
 spec:
   selector:
     matchLabels:
@@ -58,6 +61,13 @@ spec:
         volumeMounts:
         - mountPath: /usr/share/nginx/html
           name: nginx-index-volume
+        resources:
+          limits:
+            cpu: 200m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
       volumes:
       - name: nginx-index-volume
         configMap:

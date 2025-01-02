@@ -5,6 +5,7 @@ metadata:
   labels:
     app: client-one
   name: client-one
+  namespace: src-ns
 spec:
   containers:
   - image: curlimages/curl:latest
@@ -12,6 +13,13 @@ spec:
     command:
     - sleep
     - "3600"
+    resources:
+      limits:
+        cpu: 200m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
 ---
 apiVersion: v1
 kind: Pod
@@ -19,6 +27,7 @@ metadata:
   labels:
     app: client-two
   name: client-two
+  namespace: src-ns
 spec:
   containers:
   - image: curlimages/curl:latest
@@ -26,3 +35,10 @@ spec:
     command:
     - sleep
     - "3600"
+    resources:
+      limits:
+        cpu: 200m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
