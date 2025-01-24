@@ -8,11 +8,11 @@ metadata:
   namespace: sgp-demo
 spec:
   containers:
-  - image: curlimages/curl:latest
-    name: client-one
-    command:
-    - sleep
-    - "3600"
+    - image: curlimages/curl:7.78.0
+      name: client-one
+      command:
+        - sleep
+        - "3600"
 ---
 apiVersion: v1
 kind: Pod
@@ -23,8 +23,8 @@ metadata:
   namespace: sgp-demo
 spec:
   containers:
-  - image: curlimages/curl:latest
-    name: client-two
-    command:
-    - sleep
-    - "3600"
+    - image: curlimages/curl:7.78.0
+      name: client-two
+      command:
+        - sleep
+        - "3600"

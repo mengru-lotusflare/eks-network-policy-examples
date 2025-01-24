@@ -8,22 +8,22 @@ metadata:
   namespace: dst-ns
 spec:
   containers:
-  - image: curlimages/curl:latest
-    name: client-one
-    command:
-    - sleep
-    - "3600"
-    resources:
-      limits:
-        cpu: 200m
-        memory: 128Mi
-      requests:
-        cpu: 100m
-        memory: 128Mi
+    - image: curlimages/curl:7.78.0
+      name: client-one
+      command:
+        - sleep
+        - "3600"
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
   tolerations:
-  - key: "node-role.kubernetes.io/infralayer"
-    operator: "Exists"
-    effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/infralayer"
+      operator: "Exists"
+      effect: "NoSchedule"
 ---
 apiVersion: v1
 kind: Pod
@@ -34,19 +34,19 @@ metadata:
   namespace: dst-ns
 spec:
   containers:
-  - image: curlimages/curl:latest
-    name: client-two
-    command:
-    - sleep
-    - "3600"
-    resources:
-      limits:
-        cpu: 200m
-        memory: 128Mi
-      requests:
-        cpu: 100m
-        memory: 128Mi
+    - image: curlimages/curl:7.78.0
+      name: client-two
+      command:
+        - sleep
+        - "3600"
+      resources:
+        limits:
+          cpu: 200m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
   tolerations:
-  - key: "node-role.kubernetes.io/infralayer"
-    operator: "Exists"
-    effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/infralayer"
+      operator: "Exists"
+      effect: "NoSchedule"

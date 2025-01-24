@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-agent
+  namespace: lotusflare
+spec:
+  externalName: jenkins-agent.e2e-ref-cluster.lf
+  type: ExternalName
